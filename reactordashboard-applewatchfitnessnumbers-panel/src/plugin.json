@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
+  "type": "panel",
+  "name": "Apple Watch Fitness Numbers",
+  "id": "reactordashboard-applewatchfitnessnumbers-panel",
+  "info": {
+    "keywords": ["panel"],
+    "description": "Displays the apple watch fitness numbers rings from the reactor dashboard api",
+    "author": {
+      "name": "Reactor dashboard"
+    },
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [],
+    "screenshots": [],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
+  },
+  "dependencies": {
+    "grafanaDependency": "7.0.x",
+    "plugins": []
+  }
+}
