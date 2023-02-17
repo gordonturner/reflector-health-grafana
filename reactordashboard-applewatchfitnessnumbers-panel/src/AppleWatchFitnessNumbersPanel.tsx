@@ -12,8 +12,9 @@ interface Props extends PanelProps<ReactDashboardOptions> {}
 const getStyles = () => {
   return {
     wrapper: css`
-      font-family: Open Sans;
+      font-family: Roboto, Helvetica, Arial, sans-serif;
       position: relative;
+      padding-top: 25px;
     `,
     svg: css`
       position: absolute;
@@ -27,9 +28,11 @@ const getStyles = () => {
       padding: 10px;
     `,
     fitnessBlock: css`
-      width: 90%;
-      margin: auto;
     `,
+    fitnessBlockElement: css`
+      float: left;
+      padding-left: 33px;
+  `,
     fitnessTitle: css`
       font-size: 23px;
       font-weight: 500;
@@ -131,21 +134,21 @@ export const AppleWatchFitnessNumbersPanel: React.FC<Props> = ({ options, data, 
       )}
     >
     <div className={styles.fitnessBlock}>
-    <div>
+    <div className={styles.fitnessBlockElement}>
       <div className={styles.fitnessTitle}>Move</div>
       <div>
         <span className={styles.fitnessValues + ' ' + styles.fitnessMove}>{reactDashboardData?.activeEnergyBurned}/{reactDashboardData?.activeEnergyBurnedGoal}</span>
         <span className={styles.fitnessUnits + ' ' + styles.fitnessMove}>CAL</span>
       </div>
     </div>
-    <div>
+    <div className={styles.fitnessBlockElement}>
       <div className={styles.fitnessTitle}>Exercise</div>
       <div>
         <span className={styles.fitnessValues + ' ' + styles.fitnessExercise}>{reactDashboardData?.appleExerciseTime}/{reactDashboardData?.appleExerciseTimeGoal}</span>
         <span className={styles.fitnessUnits + ' ' + styles.fitnessExercise}>MIN</span>
       </div>
     </div>
-    <div>
+    <div className={styles.fitnessBlockElement}>
       <div className={styles.fitnessTitle}>Stand</div>
       <div>
         <span className={styles.fitnessValues + ' ' + styles.fitnessStand}>{reactDashboardData?.appleStandHours}/{reactDashboardData?.appleStandHoursGoal}</span>
