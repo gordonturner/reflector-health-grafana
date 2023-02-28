@@ -106,10 +106,32 @@ export const AppleWatchFitnessNumbersPanel: React.FC<Props> = ({ options, data, 
           appleStandHours: 0,
           appleStandHoursGoal: 0,
           dateOfActivity: '',
-          userId: ''
+          userId: '',
+          actualMove: 0,
+          actualMoveGoal: 0,
+          actualMoveUnit: ''
         };
         data = [reactDashboardData];
       }
+
+      console.log('data.activityMoveMode:');
+      console.log(data.activityMoveMode);
+
+      // activityMoveMode, either calories burned or time moving flag
+      // 0 = appleMoveTime
+      // 1 = activeEnergyBurned
+      if ( data.activityMoveMode === 0 ){
+        console.log( 'Setting fitnessMove to appleMoveTime/appleMoveTimeGoal' );
+        data.actualMove = data.appleMoveTime;
+        data.actualMoveGoal = data.appleMoveTimeGoal;
+        data.actualMoveUnit = 'MIN';
+      } else {
+        console.log( 'Setting fitnessMove to activeEnergyBurned/activeEnergyBurnedGoal' );
+        data.actualMove = data.activeEnergyBurned;
+        data.actualMoveGoal = data.activeEnergyBurnedGoal;
+        data.actualMoveUnit = 'CAL';
+      }
+
       updateReactDashboardData(data);
     };
 
@@ -137,8 +159,9 @@ export const AppleWatchFitnessNumbersPanel: React.FC<Props> = ({ options, data, 
     <div className={styles.fitnessBlockElement}>
       <div className={styles.fitnessTitle}>Move</div>
       <div>
-        <span className={styles.fitnessValues + ' ' + styles.fitnessMove}>{reactDashboardData?.activeEnergyBurned}/{reactDashboardData?.activeEnergyBurnedGoal}</span>
-        <span className={styles.fitnessUnits + ' ' + styles.fitnessMove}>CAL</span>
+        <span className={styles.fitnessValues + ' ' + styles.fitnessMove}>{reactDashboardData?.actualMove}/{reactDashboardData?.actualMoveGoal}
+        </span>
+        <span className={styles.fitnessUnits + ' ' + styles.fitnessMove}>{reactDashboardData?.actualMoveUnit}</span>
       </div>
     </div>
     <div className={styles.fitnessBlockElement}>

@@ -39,4 +39,7 @@ export interface ReactDashboardData {
   appleStandHoursGoal: number;
   dateOfActivity: string;
   userId: string;
+  actualMove: number;
+  actualMoveGoal: number;
+  actualMoveUnit: string;
 }

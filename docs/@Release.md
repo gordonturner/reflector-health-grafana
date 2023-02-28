@@ -21,19 +21,19 @@ cd /Users/gturner/Developer/Work/reactor-dashboard-grafana/reactordashboard-appl
 yarn build
 cp -R dist /tmp/reactordashboard-applewatchfitnessnumbers-panel
 cd /tmp
-zip reactordashboard-applewatchfitnessnumbers-panel-1.0.zip reactordashboard-applewatchfitnessnumbers-panel -r
+zip reactordashboard-applewatchfitnessnumbers-panel-2.0.zip reactordashboard-applewatchfitnessnumbers-panel -r
 rm -rf /tmp/reactordashboard-applewatchfitnessnumbers-panel
-scp reactordashboard-applewatchfitnessnumbers-panel-1.0.zip gturner@monitor.localdomain:/home/gturner/Downloads
+scp reactordashboard-applewatchfitnessnumbers-panel-2.0.zip gturner@monitor.localdomain:/home/gturner/Downloads
 ```
 
 - On server, deploy plugin:
 
 ```
 sudo su -
-cp /home/gturner/Downloads/reactordashboard-applewatchfitnessnumbers-panel-1.0.zip  /var/lib/grafana/plugins
+cp /home/gturner/Downloads/reactordashboard-applewatchfitnessnumbers-panel-2.0.zip  /var/lib/grafana/plugins
 cd /var/lib/grafana/plugins
 rm -rf reactordashboard-applewatchfitnessnumbers-panel
-unzip reactordashboard-applewatchfitnessnumbers-panel-1.0.zip
+unzip reactordashboard-applewatchfitnessnumbers-panel-2.0.zip
 chown -R grafana.grafana reactordashboard-applewatchfitnessnumbers-panel
 exit
 ```
@@ -47,5 +47,5 @@ sudo systemctl restart grafana-server
 - Tail logs:
 
 ```
-tail -F /var/log/grafana/grafana.log
+sudo tail -F /var/log/grafana/grafana.log
 ```
