@@ -1,7 +1,7 @@
 # reactor-dashboard-grafana
 
 ## Backlog
-[ ] BUG: Read activityMoveMode and switch Move value
+[ ] BUG: Read activityMoveMode and switch Move value  
 [ ] Clean up and release plugin
 
 
