@@ -1,7 +1,7 @@
 {
   "name": "apple-watch-fitness-numbers",
   "version": "1.0.0",
-  "description": "Displays the apple watch fitness numbers rings from the reactor dashboard api",
+  "description": "Displays the apple watch fitness numbers rings from the dangerboard api",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
@@ -15,7 +15,7 @@
     "server": "docker-compose up --build",
     "sign": "npx --yes @grafana/sign-plugin"
   },
-  "author": "Reactor dashboard",
+  "author": "dangerboard",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "^7.16.7",

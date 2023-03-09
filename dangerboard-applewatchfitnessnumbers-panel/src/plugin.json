@@ -2,12 +2,12 @@
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
   "name": "Apple Watch Fitness Numbers",
-  "id": "reactordashboard-applewatchfitnessnumbers-panel",
+  "id": "dangerboard-applewatchfitnessnumbers-panel",
   "info": {
     "keywords": ["panel"],
-    "description": "Displays the apple watch fitness numbers rings from the reactor dashboard api",
+    "description": "Displays the apple watch fitness numbers rings from the dangerboard api",
     "author": {
-      "name": "Reactor dashboard"
+      "name": "dangerboard"
     },
     "logos": {
       "small": "img/logo.svg",
