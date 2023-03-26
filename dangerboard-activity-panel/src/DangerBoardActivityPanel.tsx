@@ -68,7 +68,9 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
 
   const [reactDashboardData, updateReactDashboardData] = React.useState<ReactDashboardData>();
   const timerRefresh = options.refreshInMs ? options.refreshInMs : DEFAULT_REFRESH_IN_MS;
+  const apiUrl = DEFAULT_API_URL;
   const installId = options.installId ? options.installId : DEFAULT_INSTALL_ID;
+  const combinedUrl = apiUrl + installId 
 
   /**
    * On page render, make an initial request for the data from the API and then set a timer to refresh it.
@@ -84,7 +86,8 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
         headers: {},
       };
 
-      const response = axios.get(options.apiUrl ? options.apiUrl : DEFAULT_API_URL + installId, requestOptions);
+      //const response = axios.get(options.apiUrl ? options.apiUrl : DEFAULT_API_URL, requestOptions);
+      const response = axios.get(combinedUrl, requestOptions);
       let data = (await response).data;
 
       console.log('Data updated:');
@@ -138,7 +141,7 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
     };
     requestDataAsync();
     setInterval(() => requestDataAsync(), timerRefresh);
-  }, [timerRefresh, options.apiUrl]);
+  }, [timerRefresh, combinedUrl]);
 
   /**
    * Render the panel.

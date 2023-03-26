@@ -91,7 +91,7 @@ scp dangerboard-activity-panel-2.0.zip gturner@monitor.localdomain:~/Downloads
 
 ```
 sudo su -
-cp ~/Downloads/dangerboard-activity-panel-2.0.zip  /var/lib/grafana/plugins
+cp /home/user/Downloads/dangerboard-activity-panel-2.0.zip  /var/lib/grafana/plugins
 cd /var/lib/grafana/plugins
 rm -rf dangerboard-activity-panel
 unzip dangerboard-activity-panel-2.0.zip
