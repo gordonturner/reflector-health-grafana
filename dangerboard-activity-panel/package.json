@@ -1,7 +1,7 @@
 {
-  "name": "apple-watch-fitness-numbers",
+  "name": "dangerboard-activity",
   "version": "1.0.0",
-  "description": "Displays the apple watch fitness numbers rings from the dangerboard api",
+  "description": "Displays the Apple Watch Activity rings from the Dangerboard API",
   "scripts": {
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",

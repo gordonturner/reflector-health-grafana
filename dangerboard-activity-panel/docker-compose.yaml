@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   grafana:
-    container_name: 'reactordashboard-applewatchfitnessnumbers-panel'
+    container_name: 'dangerboard-activity-panel'
     build:
       context: ./.config
       args:
@@ -10,5 +10,5 @@ services:
     ports:
       - 3000:3000/tcp
     volumes:
-      - ./dist:/var/lib/grafana/plugins/reactordashboard-applewatchfitnessnumbers-panel
+      - ./dist:/var/lib/grafana/plugins/dangerboard-activity-panel
       - ./provisioning:/etc/grafana/provisioning

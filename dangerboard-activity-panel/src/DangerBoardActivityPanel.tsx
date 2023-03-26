@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { PanelProps } from '@grafana/data';
 // import { stylesFactory } from '@grafana/ui';
-import { DEFAULT_API_URL, DEFAULT_REFRESH_IN_MS } from './constants';
+import { DEFAULT_API_URL, DEFAULT_INSTALL_ID, DEFAULT_REFRESH_IN_MS } from './constants';
 import { ReactDashboardData, ReactDashboardOptions } from 'types';
 import { css, cx } from '@emotion/css';
 import { useStyles2 } from '@grafana/ui';
@@ -61,13 +61,14 @@ const getStyles = () => {
   };
 };
 
-export const AppleWatchFitnessNumbersPanel: React.FC<Props> = ({ options, data, width, height }) => {
+export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width, height }) => {
   //const theme = useTheme2();
   const styles = useStyles2(getStyles);
   // const styles = getStyles();
 
   const [reactDashboardData, updateReactDashboardData] = React.useState<ReactDashboardData>();
   const timerRefresh = options.refreshInMs ? options.refreshInMs : DEFAULT_REFRESH_IN_MS;
+  const installId = options.installId ? options.installId : DEFAULT_INSTALL_ID;
 
   /**
    * On page render, make an initial request for the data from the API and then set a timer to refresh it.
@@ -75,9 +76,6 @@ export const AppleWatchFitnessNumbersPanel: React.FC<Props> = ({ options, data, 
   useEffect(() => {
     /**
      * This function manages the async call to the API.
-     *
-     * curl 'https://prod.gordonturner.com/listlist-web/api/#' \
-     * -H 'api-key: XXXX'
      */
     const requestData = async () => {
       // Setup the authentication header
@@ -86,7 +84,7 @@ export const AppleWatchFitnessNumbersPanel: React.FC<Props> = ({ options, data, 
         headers: {},
       };
 
-      const response = axios.get(options.apiUrl ? options.apiUrl : DEFAULT_API_URL, requestOptions);
+      const response = axios.get(options.apiUrl ? options.apiUrl : DEFAULT_API_URL + installId, requestOptions);
       let data = (await response).data;
 
       console.log('Data updated:');

@@ -1,5 +1,6 @@
 export interface ReactDashboardOptions {
   apiUrl?: string;
+  installId?: string;
   refreshInMs?: number;
 }
 
