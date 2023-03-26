@@ -1,17 +1,18 @@
 # README dangerboard-grafana
 
 ## Backlog  
-[ ] Read activityMoveMode and switch Move value  
+N/A
 
 ## Todo  
-[ ] Sign and submit plugin    
-[ ] Document release notes  
-[ ] Test with max values for layout  
+[X] Read activityMoveMode and switch Move value  
+[X] Test with max values for layout  
 [X] Plugin options, remove url  
 [X] Remove leading space on Move, tested, not doing
 [X] Clean up  
 [X] Document dev Docker setup 
 [X] Edit README
+[X] Sign and submit plugin    
+[X] Document release notes  
   
 ## Done  
 [X] Create Grafana account  

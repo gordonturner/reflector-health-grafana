@@ -31,7 +31,7 @@ const getStyles = () => {
     `,
     fitnessBlockElement: css`
       float: left;
-      padding-left: 33px;
+      padding-left: 20px;
   `,
     fitnessTitle: css`
       font-size: 23px;
