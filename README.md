@@ -83,19 +83,19 @@ cd ~/Developer/Work/dangerboard-grafana/dangerboard-activity-panel
 yarn build
 cp -R dist /tmp/dangerboard-activity-panel
 cd /tmp
-zip dangerboard-activity-panel-2.0.zip dangerboard-activity-panel -r
+zip dangerboard-activity-panel-3.0.zip dangerboard-activity-panel -r
 rm -rf /tmp/dangerboard-activity-panel
-scp dangerboard-activity-panel-2.0.zip gturner@monitor.localdomain:~/Downloads
+scp dangerboard-activity-panel-3.0.zip gturner@monitor.localdomain:~/Downloads
 ```
 
 - On server, deploy plugin:
 
 ```
 sudo su -
-cp /home/user/Downloads/dangerboard-activity-panel-2.0.zip  /var/lib/grafana/plugins
+cp /home/gturner/Downloads/dangerboard-activity-panel-3.0.zip  /var/lib/grafana/plugins
 cd /var/lib/grafana/plugins
 rm -rf dangerboard-activity-panel
-unzip dangerboard-activity-panel-2.0.zip
+unzip dangerboard-activity-panel-3.0.zip
 chown -R grafana.grafana dangerboard-activity-panel
 exit
 ```
