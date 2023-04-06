@@ -7,7 +7,7 @@ cd ~/Developer/Work/dangerboard-grafana/dangerboard-activity-panel
 yarn build
 cp -R dist /tmp/dangerboard-activity-panel
 cd /tmp
-zip dangerboard-activity-panel-1.0.0.zip dangerboard-activity-panel -r
+zip dangerboard-activity-panel-1.1.0.zip dangerboard-activity-panel -r
 rm -rf /tmp/dangerboard-activity-panel
 ```
 
@@ -15,7 +15,7 @@ rm -rf /tmp/dangerboard-activity-panel
 - md5sum:
 
 ```
-md5 /tmp/dangerboard-activity-panel-1.0.0.zip
+md5 /tmp/dangerboard-activity-panel-1.1.0.zip
 ```
 
 - Source url:
