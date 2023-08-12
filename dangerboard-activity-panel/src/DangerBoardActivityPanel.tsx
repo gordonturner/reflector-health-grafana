@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { PanelProps } from '@grafana/data';
 // import { stylesFactory } from '@grafana/ui';
-import { DEFAULT_API_URL, DEFAULT_INSTALL_ID, DEFAULT_REFRESH_IN_MS } from './constants';
+import { DEFAULT_API_URL, DEFAULT_API_URL_SUFFIX, DEFAULT_INSTALL_ID, DEFAULT_REFRESH_IN_MS } from './constants';
 import { ReactDashboardData, ReactDashboardOptions } from 'types';
 import { css, cx } from '@emotion/css';
 import { useStyles2 } from '@grafana/ui';
@@ -69,8 +69,9 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
   const [reactDashboardData, updateReactDashboardData] = React.useState<ReactDashboardData>();
   const timerRefresh = options.refreshInMs ? options.refreshInMs : DEFAULT_REFRESH_IN_MS;
   const apiUrl = DEFAULT_API_URL;
+  const apiUrlSuffix = DEFAULT_API_URL_SUFFIX;
   const installId = options.installId ? options.installId : DEFAULT_INSTALL_ID;
-  const combinedUrl = apiUrl + installId 
+  const combinedUrl = apiUrl + installId + apiUrlSuffix
 
   /**
    * On page render, make an initial request for the data from the API and then set a timer to refresh it.
