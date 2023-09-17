@@ -1,12 +1,8 @@
-# Grafana panel plugin template
+# Dangerboard Activity Panel
 
-This template is a starting point for building a panel plugin for Grafana.
+This is the default template content.
 
-## What are Grafana panel plugins?
-
-Panel plugins allow you to add new types of visualizations to your dashboard, such as maps, clocks, pie charts, lists, and more.
-
-Use panel plugins when you want to do things like visualize data returned by data source queries, navigate between dashboards, or control external systems (such as smart home devices).
+See the README.md one level higher.
 
 ## Getting started
 
