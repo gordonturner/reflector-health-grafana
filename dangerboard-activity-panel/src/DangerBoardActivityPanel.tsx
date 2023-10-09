@@ -71,7 +71,7 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
   const apiUrl = DEFAULT_API_URL;
   const apiUrlSuffix = DEFAULT_API_URL_SUFFIX;
   const installId = options.installId ? options.installId : DEFAULT_INSTALL_ID;
-  const combinedUrl = apiUrl + installId + apiUrlSuffix
+  const combinedUrl = apiUrl + installId + apiUrlSuffix;
 
   /**
    * On page render, make an initial request for the data from the API and then set a timer to refresh it.

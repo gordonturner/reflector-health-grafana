@@ -33,13 +33,11 @@ The build requires node/npm and yarn.
 https://nodejs.org/en/download
   
 - Install yarn:  
-  
 ```
 npm install --global yarn
 ```
   
 - First, build the project:
-  
 ```
 cd dangerboard-activity-panel
 yarn install
@@ -52,17 +50,18 @@ The easiest way to do plugin development is to use a Docker image.
 - Install Docker:  
 https://docs.docker.com/get-docker/
   
-- Start a detached Grafana dock image, using the local directory as the plugins home:  
-  
+- Start a detached Grafana dock image, using the local directory as the plugins home:
 ```
 cd dangerboard-activity-panel
 docker run -d -p 3000:3000 \
--v "$(pwd)"/dist:/var/lib/grafana/plugins \
+-v "$(pwd)"/dist:/var/lib/grafana/plugins/dangerboard-activity-panel \
 --name=dangerboard-grafana \
 -e "GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=dangerboard-activity-panel" \
+-e "GF_DEFAULT_APP_MODE=development" \
+-e "GF_LOG_LEVEL=debug" \
 grafana/grafana:8.3.3
 ```
-  
+
 - Open and login with admin/admin:  
 http://localhost:3000/
 
@@ -77,10 +76,9 @@ If you have an installed Grafana instance, the following will allow the unsigned
 
 ## Deploying Test Build to Server 
 - Create release and deploy:  
-  
 ```
 cd ~/Developer/Work/dangerboard-grafana/dangerboard-activity-panel
-yarn build
+yarn dev
 cp -R dist /tmp/dangerboard-activity-panel
 cd /tmp
 zip dangerboard-activity-panel-4.0.zip dangerboard-activity-panel -r
@@ -89,7 +87,6 @@ scp dangerboard-activity-panel-4.0.zip gturner@monitor.localdomain:~/Downloads
 ```
 
 - On server, deploy plugin:
-
 ```
 sudo su -
 cp /home/gturner/Downloads/dangerboard-activity-panel-4.0.zip  /var/lib/grafana/plugins
@@ -101,18 +98,15 @@ exit
 ```
   
 - Restart Grafana:
-  
 ```
 sudo systemctl restart grafana-server
 ```
   
 - Tail logs:
-  
 ```
 sudo tail -F /var/log/grafana/grafana.log
 journalctl -u grafana-server.service -f
 ```
-
 
 # Distributing your plugin
 
@@ -153,7 +147,6 @@ To trigger the workflow we need to push a version tag to github. This can be ach
 1. Run `npm version <major|minor|patch>`
 2. Run `git push origin main --follow-tags`
 
-
 ## Learn more
 
 Below you can find source code for existing app plugins and other related documentation.
@@ -161,3 +154,5 @@ Below you can find source code for existing app plugins and other related docume
 - [Basic panel plugin example](https://github.com/grafana/grafana-plugin-examples/tree/master/examples/panel-basic#readme)
 - [Plugin.json documentation](https://grafana.com/docs/grafana/latest/developers/plugins/metadata/)
 - [How to sign a plugin?](https://grafana.com/docs/grafana/latest/developers/plugins/sign-a-plugin/)
+
+- [Plugin json format](https://grafana.com/developers/plugin-tools/reference-plugin-json)
