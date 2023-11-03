@@ -1,6 +1,7 @@
 # Grafana Plugin Submission
 
-## Prepare Zip Archive
+## Package a Plugin
+https://grafana.com/developers/plugin-tools/publish-a-plugin/package-a-plugin
   
 ```
 cd ~/Developer/Work/dangerboard-grafana/dangerboard-activity-panel
@@ -33,3 +34,6 @@ https://grafana.com/docs/grafana/latest/developers/plugins/sign-a-plugin/
 - Generate an API key. 
 - Create a Grafana Cloud API key with the PluginPublisher role. 
 - https://grafana.com/docs/grafana-cloud/reference/create-api-key/
+
+- API key:
+https://grafana.com/orgs/dangerboard/api-keys

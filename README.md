@@ -4,6 +4,11 @@
 N/A
 
 ## Todo  
+[ ] Discovery about plugin submission, see `Grafana Plugin Submission.md`
+[ ] Update or refactor plugin for submission
+[ ] Get key or credential for submission
+
+## Done  
 [X] Read activityMoveMode and switch Move value  
 [X] Test with max values for layout  
 [X] Plugin options, remove url  
@@ -14,7 +19,6 @@ N/A
 [X] Sign and submit plugin    
 [X] Document release notes  
   
-## Done  
 [X] Create Grafana account  
 [X] Prototype plugin
 [X] Run plugin create script  
@@ -109,13 +113,11 @@ journalctl -u grafana-server.service -f
 ```
 
 # Distributing your plugin
-
 When distributing a Grafana plugin either within the community or privately the plugin must be signed so the Grafana application can verify its authenticity. This can be done with the `@grafana/sign-plugin` package.
 
 _Note: It's not necessary to sign a plugin during development. The docker development environment that is scaffolded with `@grafana/create-plugin` caters for running the plugin without a signature._
 
 ## Initial steps
-
 Before signing a plugin please read the Grafana [plugin publishing and signing criteria](https://grafana.com/docs/grafana/latest/developers/plugins/publishing-and-signing-criteria/) documentation carefully.
 
 `@grafana/create-plugin` has added the necessary commands and workflows to make signing and distributing a plugin via the grafana plugins catalog as straightforward as possible.
@@ -131,7 +133,6 @@ Before signing a plugin for the first time please consult the Grafana [plugin si
 ## Signing a plugin
 
 ### Using Github actions release workflow
-
 If the plugin is using the github actions supplied with `@grafana/create-plugin` signing a plugin is included out of the box. The [release workflow](./.github/workflows/release.yml) can prepare everything to make submitting your plugin to Grafana as easy as possible. Before being able to sign the plugin however a secret needs adding to the Github repository.
 
 1. Please navigate to "settings > secrets > actions" within your repo to create secrets.
@@ -141,14 +142,12 @@ If the plugin is using the github actions supplied with `@grafana/create-plugin`
 5. Click "Add secret"
 
 #### Push a version tag
-
 To trigger the workflow we need to push a version tag to github. This can be achieved with the following steps:
 
 1. Run `npm version <major|minor|patch>`
 2. Run `git push origin main --follow-tags`
 
 ## Learn more
-
 Below you can find source code for existing app plugins and other related documentation.
 
 - [Basic panel plugin example](https://github.com/grafana/grafana-plugin-examples/tree/master/examples/panel-basic#readme)
