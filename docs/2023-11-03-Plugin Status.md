@@ -97,6 +97,14 @@ Note: Restart this command after each time you run mage to run your new backend 
 
 Open http://localhost:3000/ with admin/admin
 
+## Set up GitHub workflows
+https://grafana.com/developers/plugin-tools/create-a-plugin/develop-a-plugin/set-up-github-workflows
+
+
+
+
+
+
 ## Migration
 Code and files migrated:
 `src/types.ts` to `src/types.ts`
