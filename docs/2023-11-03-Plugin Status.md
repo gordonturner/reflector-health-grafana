@@ -97,4 +97,25 @@ Note: Restart this command after each time you run mage to run your new backend 
 
 Open http://localhost:3000/ with admin/admin
 
+## Migration
+Code and files migrated:
+`src/types.ts` to `src/types.ts`
+`src/DangerBoardActivityPanel.tsx` to `src/DangerboardActivitySummary.tsx`
+`src/constants.ts` to `src/constants.ts`
+`src/module.ts` to `src/module.ts`
+`screenshot.png` to `screenshot.png`
+
+Remove `src/components/SimplePanel.tsx`
+Remove `src/components/`
+
+Update name of imports from `DangerBoardActivityPanel` to `DangerboardActivitySummary`
+
+Update `src/plugin.json`
+
+Added missing dependency to package.json:
+```
+    "@types/axios": "^0.14.0",
+```
+
+Keep new `src/README.md`
 

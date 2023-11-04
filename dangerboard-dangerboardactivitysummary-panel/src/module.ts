@@ -1,40 +1,24 @@
 import { PanelPlugin } from '@grafana/data';
-import { SimpleOptions } from './types';
-import { SimplePanel } from './components/SimplePanel';
+import { ReactDashboardOptions } from './types';
+import { DangerBoardActivityPanel } from './DangerboardActivitySummary';
+import { DEFAULT_INSTALL_ID, DEFAULT_REFRESH_IN_MS } from './constants';
 
-export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions((builder) => {
+export const plugin = new PanelPlugin<ReactDashboardOptions>(DangerBoardActivityPanel).setPanelOptions(builder => {
   return builder
     .addTextInput({
-      path: 'text',
-      name: 'Simple text option',
-      description: 'Description of panel option',
-      defaultValue: 'Default value of text input option',
-    })
-    .addBooleanSwitch({
-      path: 'showSeriesCount',
-      name: 'Show series counter',
-      defaultValue: false,
-    })
-    .addRadio({
-      path: 'seriesCountSize',
-      defaultValue: 'sm',
-      name: 'Series counter size',
+      path: 'installId',
+      name: 'Install Id',
+      description: 'To find your Install Id, please visit the \'Install Id Lookup\' page, and enter a Quickcode from the iOS app.',
       settings: {
-        options: [
-          {
-            value: 'sm',
-            label: 'Small',
-          },
-          {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
-          },
-        ],
+        placeholder: DEFAULT_INSTALL_ID,
       },
-      showIf: (config) => config.showSeriesCount,
+    })
+    .addTextInput({
+      path: 'refreshInMs',
+      name: 'Refresh',
+      description: 'Refresh in Milliseconds.',
+      settings: {
+        placeholder: DEFAULT_REFRESH_IN_MS.toString(),
+      },
     });
 });
