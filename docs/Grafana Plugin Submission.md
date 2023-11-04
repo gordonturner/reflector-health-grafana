@@ -6,24 +6,23 @@ git tag v1.2.0
 git push origin v1.2.0
 ```
 
-
 ## Package a Plugin
 https://grafana.com/developers/plugin-tools/publish-a-plugin/package-a-plugin
   
 ```
-cd ~/Developer/Work/dangerboard-grafana/dangerboard-activity-panel
+cd ~/Developer/Work/dangerboard-grafana
 yarn build
-cp -R dist /tmp/dangerboard-activity-panel
+cp -R dist /tmp/dangerboard-dangerboardactivitysummary-panel
 cd /tmp
-zip dangerboard-activity-panel-1.1.0.zip dangerboard-activity-panel -r
-rm -rf /tmp/dangerboard-activity-panel
+zip dangerboard-dangerboardactivitysummary-panel-1.2.0.zip dangerboard-dangerboardactivitysummary-panel -r
+rm -rf /tmp/dangerboard-activity-summary
 ```
 
 - Upload to server for sharing
 - md5sum:
 
 ```
-md5 /tmp/dangerboard-activity-panel-1.1.0.zip
+md5 /tmp/dangerboard-dangerboardactivitysummary-panel-1.2.0.zip
 ```
 
 - Source url:
