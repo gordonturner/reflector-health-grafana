@@ -1,5 +1,12 @@
 # Grafana Plugin Submission
 
+## Tag a Plugin Release
+```
+git tag v1.2.0
+git push origin v1.2.0
+```
+
+
 ## Package a Plugin
 https://grafana.com/developers/plugin-tools/publish-a-plugin/package-a-plugin
   
