@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { PanelProps } from '@grafana/data';
-// import { stylesFactory } from '@grafana/ui';
 import { DEFAULT_API_URL, DEFAULT_API_URL_SUFFIX, DEFAULT_INSTALL_ID, DEFAULT_REFRESH_IN_MS } from './constants';
 import { ReactDashboardData, ReactDashboardOptions } from 'types';
 import { css, cx } from '@emotion/css';
@@ -31,7 +30,7 @@ const getStyles = () => {
     `,
     fitnessBlockElement: css`
       float: left;
-      padding-left: 20px;
+      padding-left: 42px;
   `,
     fitnessTitle: css`
       font-size: 23px;

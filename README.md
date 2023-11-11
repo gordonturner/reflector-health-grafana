@@ -1,34 +1,4 @@
-# README dangerboard-grafana
-
-## Backlog  
-N/A  
-
-## Todo  
-[ ] Discovery about plugin submission, see `Grafana Plugin Submission.md`  
-[ ] Update or refactor plugin for submission  
-[ ] Get key or credential for submission  
-
-## Done  
-[X] Read activityMoveMode and switch Move value  
-[X] Test with max values for layout  
-[X] Plugin options, remove url  
-[X] Remove leading space on Move, tested, not doing
-[X] Clean up  
-[X] Document dev Docker setup 
-[X] Edit README
-[X] Sign and submit plugin    
-[X] Document release notes  
-  
-[X] Create Grafana account  
-[X] Prototype plugin
-[X] Run plugin create script  
-  
-# Development
-  
-## Using Unsigned Plugins
-By default Grafana will not load unsigned plugins.
-
-If you are developing plugins and want to test the changes, you will have to add the name of the unsigned plugin to the `allow_loading_unsigned_plugins` parameter.
+# README
 
 ## Setup and Build
 The build requires node/npm and yarn.
@@ -56,14 +26,13 @@ https://docs.docker.com/get-docker/
   
 - Start a detached Grafana dock image, using the local directory as the plugins home:
 ```
-cd dangerboard-activity-panel
 docker run -d -p 3000:3000 \
--v "$(pwd)"/dist:/var/lib/grafana/plugins/dangerboard-activity-panel \
---name=dangerboard-grafana \
--e "GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=dangerboard-activity-panel" \
+-v "$(pwd)"/dist:/var/lib/grafana/plugins/dangerboard-dangerboardactivitysummary-panel \
+--name=dangerboardactivitysummary \
+-e "GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=dangerboardactivitysummary" \
 -e "GF_DEFAULT_APP_MODE=development" \
 -e "GF_LOG_LEVEL=debug" \
-grafana/grafana:8.3.3
+grafana/grafana:10.2.0
 ```
 
 - Open and login with admin/admin:  
@@ -81,28 +50,23 @@ If you have an installed Grafana instance, the following will allow the unsigned
 ## Deploying Test Build to Server 
 - Create release and deploy:  
 ```
-cd ~/Developer/Work/dangerboard-grafana/dangerboard-activity-panel
+cd ~/Developer/Work/dangerboard-grafana
 yarn dev
-cp -R dist /tmp/dangerboard-activity-panel
+cp -R dist /tmp/dangerboard-dangerboardactivitysummary-panel
 cd /tmp
-zip dangerboard-activity-panel-4.0.zip dangerboard-activity-panel -r
-rm -rf /tmp/dangerboard-activity-panel
-scp dangerboard-activity-panel-4.0.zip gturner@monitor.localdomain:~/Downloads
+zip dangerboard-dangerboardactivitysummary-panel-1.3.0.zip dangerboard-dangerboardactivitysummary-panel -r
+rm -rf /tmp/dangerboard-dangerboardactivitysummary-panel
+scp dangerboard-dangerboardactivitysummary-panel-1.3.0.zip gturner@monitor.localdomain:~/Downloads
 ```
 
 - On server, deploy plugin:
 ```
 sudo su -
-cp /home/gturner/Downloads/dangerboard-activity-panel-4.0.zip  /var/lib/grafana/plugins
+cp /home/gturner/Downloads/dangerboard-dangerboardactivitysummary-panel-1.3.0.zip /var/lib/grafana/plugins
 cd /var/lib/grafana/plugins
-rm -rf dangerboard-activity-panel
-unzip dangerboard-activity-panel-4.0.zip
-chown -R grafana.grafana dangerboard-activity-panel
-exit
-```
-  
-- Restart Grafana:
-```
+rm -rf dangerboard-dangerboardactivitysummary-panel
+unzip dangerboard-dangerboardactivitysummary-panel-1.3.0.zip
+chown -R grafana.grafana dangerboard-dangerboardactivitysummary-panel
 sudo systemctl restart grafana-server
 ```
   
@@ -111,3 +75,8 @@ sudo systemctl restart grafana-server
 sudo tail -F /var/log/grafana/grafana.log
 journalctl -u grafana-server.service -f
 ```
+  
+## Using Unsigned Plugins
+By default Grafana will not load unsigned plugins.
+
+If you are developing plugins and want to test the changes, you will have to add the name of the unsigned plugin to the `allow_loading_unsigned_plugins` parameter.

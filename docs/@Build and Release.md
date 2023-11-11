@@ -1,4 +1,4 @@
-# Grafana Plugin Submission
+# @Build and Release
 
 ## Tag a Plugin Release
 ```
@@ -15,7 +15,7 @@ yarn build
 cp -R dist /tmp/dangerboard-dangerboardactivitysummary-panel
 cd /tmp
 zip dangerboard-dangerboardactivitysummary-panel-1.2.0.zip dangerboard-dangerboardactivitysummary-panel -r
-rm -rf /tmp/dangerboard-activity-summary
+rm -rf /tmp/dangerboard-dangerboardactivitysummary-panel
 ```
 
 - Upload to server for sharing
