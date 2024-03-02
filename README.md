@@ -13,7 +13,7 @@ npm install --global yarn
   
 - First, build the project:
 ```
-cd dangerboard-activity-panel
+cd dangerboard-grafana
 yarn install
 yarn dev
 ```
@@ -23,7 +23,9 @@ The easiest way to do plugin development is to use a Docker image.
   
 - Install Docker:  
 https://docs.docker.com/get-docker/
-  
+
+- Start docker
+
 - Start a detached Grafana dock image, using the local directory as the plugins home:
 ```
 docker run -d -p 3000:3000 \

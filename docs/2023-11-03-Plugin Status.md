@@ -69,7 +69,6 @@ Note: We strongly recommend creating a new Git repository by running git init in
     * Learn more about Grafana Plugin Development at https://grafana.com/developers/plugin-tools
 ```
 
-
 ## Development and Testing
 Tutorial here:
 https://grafana.com/developers/plugin-tools/tutorials/
