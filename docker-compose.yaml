@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   grafana:
-    container_name: 'dangerboard-dangerboardactivitysummary-panel'
+    container_name: 'reflector-health-activitysummary-panel'
     platform: 'linux/amd64'
     build:
       context: ./.config
@@ -12,5 +12,5 @@ services:
     ports:
       - 3000:3000/tcp
     volumes:
-      - ./dist:/var/lib/grafana/plugins/dangerboard-dangerboardactivitysummary-panel
+      - ./dist:/var/lib/grafana/plugins/reflector-health-activitysummary-panel
       - ./provisioning:/etc/grafana/provisioning

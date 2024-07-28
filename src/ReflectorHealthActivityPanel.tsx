@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { PanelProps } from '@grafana/data';
 import { DEFAULT_API_URL, DEFAULT_API_URL_SUFFIX, DEFAULT_INSTALL_ID, DEFAULT_REFRESH_IN_MS } from './constants';
-import { ReactDashboardData, ReactDashboardOptions } from 'types';
+import { ReflectorHealthData, ReflectorHealthOptions } from 'types';
 import { css, cx } from '@emotion/css';
 import { useStyles2 } from '@grafana/ui';
 import axios, { AxiosRequestConfig } from 'axios';
 
-interface Props extends PanelProps<ReactDashboardOptions> {}
+interface Props extends PanelProps<ReflectorHealthOptions> {}
 
 const getStyles = () => {
   return {
@@ -60,12 +60,12 @@ const getStyles = () => {
   };
 };
 
-export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width, height }) => {
+export const ReflectorHealthActivityPanel: React.FC<Props> = ({ options, data, width, height }) => {
   //const theme = useTheme2();
   const styles = useStyles2(getStyles);
   // const styles = getStyles();
 
-  const [reactDashboardData, updateReactDashboardData] = React.useState<ReactDashboardData>();
+  const [reflectorHealthData, updateReflectorHealthData] = React.useState<ReflectorHealthData>();
   const timerRefresh = options.refreshInMs ? options.refreshInMs : DEFAULT_REFRESH_IN_MS;
   const apiUrl = DEFAULT_API_URL;
   const apiUrlSuffix = DEFAULT_API_URL_SUFFIX;
@@ -95,7 +95,7 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
 
       // Show a 'No data' message
       if (data === undefined || data.length === 0) {
-        const reactDashboardData: ReactDashboardData = {
+        const reflectorHealthData: ReflectorHealthData = {
 
           activeEnergyBurned: 0,
           activeEnergyBurnedGoal: 0,
@@ -112,7 +112,7 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
           actualMoveGoal: 0,
           actualMoveUnit: ''
         };
-        data = [reactDashboardData];
+        data = [reflectorHealthData];
       }
 
       console.log('data.activityMoveMode:');
@@ -133,7 +133,7 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
         data.actualMoveUnit = 'CAL';
       }
 
-      updateReactDashboardData(data);
+      updateReflectorHealthData(data);
     };
 
     const requestDataAsync = async () => {
@@ -160,22 +160,22 @@ export const DangerBoardActivityPanel: React.FC<Props> = ({ options, data, width
     <div className={styles.fitnessBlockElement}>
       <div className={styles.fitnessTitle}>Move</div>
       <div>
-        <span className={styles.fitnessValues + ' ' + styles.fitnessMove}>{reactDashboardData?.actualMove}/{reactDashboardData?.actualMoveGoal}
+        <span className={styles.fitnessValues + ' ' + styles.fitnessMove}>{reflectorHealthData?.actualMove}/{reflectorHealthData?.actualMoveGoal}
         </span>
-        <span className={styles.fitnessUnits + ' ' + styles.fitnessMove}>{reactDashboardData?.actualMoveUnit}</span>
+        <span className={styles.fitnessUnits + ' ' + styles.fitnessMove}>{reflectorHealthData?.actualMoveUnit}</span>
       </div>
     </div>
     <div className={styles.fitnessBlockElement}>
       <div className={styles.fitnessTitle}>Exercise</div>
       <div>
-        <span className={styles.fitnessValues + ' ' + styles.fitnessExercise}>{reactDashboardData?.appleExerciseTime}/{reactDashboardData?.appleExerciseTimeGoal}</span>
+        <span className={styles.fitnessValues + ' ' + styles.fitnessExercise}>{reflectorHealthData?.appleExerciseTime}/{reflectorHealthData?.appleExerciseTimeGoal}</span>
         <span className={styles.fitnessUnits + ' ' + styles.fitnessExercise}>MIN</span>
       </div>
     </div>
     <div className={styles.fitnessBlockElement}>
       <div className={styles.fitnessTitle}>Stand</div>
       <div>
-        <span className={styles.fitnessValues + ' ' + styles.fitnessStand}>{reactDashboardData?.appleStandHours}/{reactDashboardData?.appleStandHoursGoal}</span>
+        <span className={styles.fitnessValues + ' ' + styles.fitnessStand}>{reflectorHealthData?.appleStandHours}/{reflectorHealthData?.appleStandHoursGoal}</span>
         <span className={styles.fitnessUnits + ' ' + styles.fitnessStand}>HRS</span>
       </div>
     </div>

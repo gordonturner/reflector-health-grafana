@@ -10,23 +10,23 @@ git push origin v1.2.0
 https://grafana.com/developers/plugin-tools/publish-a-plugin/package-a-plugin
   
 ```
-cd ~/Developer/Work/dangerboard-grafana
+cd ~/Developer/Work/reflector-health-grafana
 yarn build
-cp -R dist /tmp/dangerboard-dangerboardactivitysummary-panel
+cp -R dist /tmp/reflector-health-activitysummary-panel
 cd /tmp
-zip dangerboard-dangerboardactivitysummary-panel-1.2.0.zip dangerboard-dangerboardactivitysummary-panel -r
-rm -rf /tmp/dangerboard-dangerboardactivitysummary-panel
+zip reflector-health-activitysummary-panel-1.2.0.zip reflector-health-activitysummary-panel -r
+rm -rf /tmp/reflector-health-activitysummary-panel
 ```
 
 - Upload to server for sharing
 - md5sum:
 
 ```
-md5 /tmp/dangerboard-dangerboardactivitysummary-panel-1.2.0.zip
+md5 /tmp/reflector-health-activitysummary-panel-1.2.0.zip
 ```
 
 - Source url:
-https://github.com/gordonturner/dangerboard-grafana
+https://github.com/gordonturner/reflector-health-grafana
 
 
 ## Setup an Account
@@ -42,4 +42,5 @@ https://grafana.com/docs/grafana/latest/developers/plugins/sign-a-plugin/
 - https://grafana.com/docs/grafana-cloud/reference/create-api-key/
 
 - API key:
+https://grafana.com/orgs/reflector-health/api-keys
 https://grafana.com/orgs/dangerboard/api-keys

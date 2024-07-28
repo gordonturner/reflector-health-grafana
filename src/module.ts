@@ -1,9 +1,9 @@
 import { PanelPlugin } from '@grafana/data';
-import { ReactDashboardOptions } from './types';
-import { DangerBoardActivityPanel } from './DangerboardActivitySummary';
+import { ReflectorHealthOptions } from './types';
+import { ReflectorHealthActivityPanel } from './ReflectorHealthActivityPanel';
 import { DEFAULT_INSTALL_ID, DEFAULT_REFRESH_IN_MS } from './constants';
 
-export const plugin = new PanelPlugin<ReactDashboardOptions>(DangerBoardActivityPanel).setPanelOptions(builder => {
+export const plugin = new PanelPlugin<ReflectorHealthOptions>(ReflectorHealthActivityPanel).setPanelOptions(builder => {
   return builder
     .addTextInput({
       path: 'installId',

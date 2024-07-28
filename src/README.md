@@ -2,7 +2,7 @@
 
 Remove any remaining comments before publishing as these may be displayed on Grafana.com -->
 
-# Dangerboard Activity Summary
+# Reflector Health Activity Summary
 
-Displays the apple watch activity summary from the dangerboard api.
+Displays the apple watch activity summary from the Reflector Health api.
 

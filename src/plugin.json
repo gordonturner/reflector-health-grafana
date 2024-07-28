@@ -1,13 +1,13 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "Dangerboard Activity Summary",
-  "id": "dangerboard-dangerboardactivitysummary-panel",
+  "name": "Reflector Health Activity Summary",
+  "id": "reflector-health-activitysummary-panel",
   "info": {
     "keywords": ["panel"],
-    "description": "Displays the apple watch activity summary from the dangerboard api",
+    "description": "Displays the apple watch activity summary from the Reflector Health API",
     "author": {
-      "name": "Dangerboard"
+      "name": "Reflector Health"
     },
     "logos": {
       "small": "img/logo.svg",

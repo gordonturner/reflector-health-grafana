@@ -1,15 +1,15 @@
-export interface ReactDashboardOptions {
+export interface ReflectorHealthOptions {
   apiUrl?: string;
   installId?: string;
   refreshInMs?: number;
 }
 
-export const defaults: ReactDashboardOptions = {
+export const defaults: ReflectorHealthOptions = {
   // Default values
 };
 
 /**
- * Interfaces for the response from React Dashboard API
+ * Interfaces for the response from Reflector Health API
  * 
  * Example response:
  * 
@@ -28,7 +28,7 @@ export const defaults: ReactDashboardOptions = {
  * }
  * 
  */
-export interface ReactDashboardData {
+export interface ReflectorHealthData {
   activeEnergyBurned: number;
   activeEnergyBurnedGoal: number;
   activityMoveMode: number;
